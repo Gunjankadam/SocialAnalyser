@@ -95,6 +95,35 @@ REDDIT_USER_AGENT=""
   - **TF-IDF** for sentiment and text analysis
   - **Topic modeling (e.g., LDA)** for discovering topics from the dataset
   - **GridFS** (For storing large files)
+ 
+## Folder Structure
+
+```
+.
+├── pythonfiles/            # python backend
+│   ├── main                # extraction logic
+│   ├── analysis            # analysis and visualisation logic
+├── src/components/         # Reusable UI components.
+│   ├── ui                
+│   ├── magicui       
+│   └── Other component files  
+├── src/app/                # Pages in the app
+│   ├── pages/              # API routes for server-side logic
+│   ├── auth/               # Authentication pages (sign in, sign up)
+│   ├── dashboard/          # Dashboard page for viewing stats
+│   ├── visual/          
+│   └── analysis/
+│   ├── extraction/           
+│   └── scraped/
+│   ├── settings/          
+│   └── page and layout files 
+├── public/                 # Public assets like images
+│   └── hero.png            # Example image for the hero section
+└── src/lib/                # Utility functions
+│   └── util files and mongo-connection
+└── src/models/             # Utility functions
+│   └── mongo-models             
+```
 
 ## Usage
 
@@ -103,6 +132,38 @@ REDDIT_USER_AGENT=""
 3. **View Visualizations**: The results of the analysis will be displayed as interactive visualizations on the Visualization page.
 4. **Download Report**: You can download the results in a report format (CSV or DOC).
 
+## Input Types
+
+### Query Text (Single)
+
+- Type your text and click "Check Sentiment".
+- Example:
+  > "The river looks much cleaner after the cleanup drive."
+
+## Output Types
+
+### Textual Output
+
+| Sentiment | Example |
+|-----------|---------|
+| Positive  | "I love the initiative to clean the river!" |
+| Neutral   | "The program started last year." |
+| Negative  | "The river still looks very polluted." |
+
+## Visual Output
+
+- Real-time prediction result for query.
+- Pie chart for CSV input showing sentiment percentages.
+- 
 ## Screenshots
 
-
+- Home Page
+  ![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic3.png)
+- Login Page
+  ![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic4.png)
+- Dashboard
+  ![Image 2](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic2.png)
+- Visualisation Page
+  ![Image 1](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic1.png)
+  
+  
