@@ -1,0 +1,12 @@
+Flask==3.1.1
+Flask-Cors==6.0.1
+pymongo==4.13.2
+pandas
+textblob
+scikit-learn
+networkx
+spacy
+wordcloud
+matplotlib
+gunicorn
+python-dotenv
