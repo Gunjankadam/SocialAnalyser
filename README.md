@@ -84,7 +84,7 @@ REDDIT_USER_AGENT=""
 
 ## Tech Stack
 
-- **Frontend**: React.js, Tailwind CSS
+- **Frontend**: Next.js, Tailwind CSS
 - **Backend**: Node.js, Express.js (for APIs)
 - **Database**: MongoDB (for storing user data and historical analytics)
 - **Libraries/Tools**:
