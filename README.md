@@ -19,7 +19,6 @@ SocialAnalyser is a web-based social media analytics platform designed to extrac
 
 Before running the project locally, make sure you have:
 
-- Node.js installed (preferably v14 or higher)
 - MongoDB (for local development, or use MongoDB Atlas for cloud-based storage)
 - Git (to clone the repository)
 
@@ -85,7 +84,7 @@ REDDIT_USER_AGENT=""
 ## Tech Stack
 
 - **Frontend**: Next.js, Tailwind CSS
-- **Backend**: Node.js, Express.js (for APIs)
+- **Backend**: Next.js API routes
 - **Database**: MongoDB (for storing user data and historical analytics)
 - **Libraries/Tools**:
   - **Recharts** for data visualization
