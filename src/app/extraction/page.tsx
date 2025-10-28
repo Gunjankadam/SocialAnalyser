@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Exbar from '@/components/ExBar';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { BlackButton } from '@/components/BlackButton';
-import Alert from '@/components/Alerts'; // Import Alert component
+import Alert from '@/components/Alerts';
+
 export default function DataExtractionPage() {
   const [platform, setPlatform] = useState<'youtube' | 'reddit' | ''>('');
-  
 
   // YouTube
   const [ytQuery, setYtQuery] = useState('');
@@ -22,22 +22,24 @@ export default function DataExtractionPage() {
   const [redditSearchLimit, setRedditSearchLimit] = useState('5');
   const [redditCommentLimit, setRedditCommentLimit] = useState('50');
 
-  // New Field for Filename
+  // Filename
   const [filename, setFilename] = useState('');
+  const [email, setEmail] = useState<string | null>('User');
 
   const [isScraping, setIsScraping] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [error1, setError1] = useState<string | null>(null);
   const [error2, setError2] = useState<string | null>(null);
   const [alertType, setAlertType] = useState<'success' | 'error' | 'info' | 'warning' | null>(null);
-  const [email, setEmail] = useState<string | null>('User');
 
-  
-    const userEmail = localStorage.getItem('userEmail');
-    if (userEmail) {
-      setEmail(userEmail);
+  // ✅ FIX: localStorage only in client effect
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const userEmail = localStorage.getItem('userEmail');
+      if (userEmail) setEmail(userEmail);
     }
-  
+  }, []);
+
 
   const handleScrape = async () => {
     if (!email || !platform || !filename) return;
@@ -183,3 +185,4 @@ export default function DataExtractionPage() {
     </div>
   );
 }
+
