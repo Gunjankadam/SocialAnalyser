@@ -118,7 +118,7 @@ export default function DataExtractionPage() {
 
           {/* Filename Input */}
           <div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
-            <Label htmlFor="file">Filename (enter before scraping)</Label>
+            <Label htmlFor="file"></Label>
             <Input
               id="file"
               type="text"
@@ -136,19 +136,19 @@ export default function DataExtractionPage() {
           {platform === 'youtube' && (
             <div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
               <div>
-                <Label htmlFor="video">Video IDs (comma-separated)</Label>
+                <Label htmlFor="video"></Label>
                 <Input id="video" label="Video IDs (comma-separated)" value={videoIds} onChange={(e) => setVideoIds(e.target.value)} />
               </div>
               <div>
-                <Label htmlFor="query">Query (optional)</Label>
+                <Label htmlFor="query"></Label>
                 <Input id="query" label="Query (optional)" value={ytQuery} onChange={(e) => setYtQuery(e.target.value)} />
               </div>
               <div>
-                <Label htmlFor="search">Search Limit</Label>
+                <Label htmlFor="search"></Label>
                 <Input id="search" label="Search Limit" type="number" value={ytSearchLimit} onChange={(e) => setYtSearchLimit(e.target.value)} />
               </div>
               <div>
-                <Label htmlFor="comment">Comment Limit</Label>
+                <Label htmlFor="comment"></Label>
                 <Input id="comment" label="Comment Limit" type="number" value={ytCommentLimit} onChange={(e) => setYtCommentLimit(e.target.value)} />
               </div>
             </div>
@@ -158,15 +158,15 @@ export default function DataExtractionPage() {
           {platform === 'reddit' && (
             <div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
               <div>
-                <Label htmlFor="querys">Search Query</Label>
+                <Label htmlFor="querys"></Label>
                 <Input id="querys" label="Search Query" value={redditQuery} onChange={(e) => setRedditQuery(e.target.value)} />
               </div>
               <div>
-                <Label htmlFor="searchs">Subreddit Search Limit</Label>
+                <Label htmlFor="searchs"></Label>
                 <Input id="searchs" label="Subreddit Search Limit"  type="number" value={redditSearchLimit} onChange={(e) => setRedditSearchLimit(e.target.value)} />
               </div>
               <div>
-                <Label htmlFor="comments" >Comment Limit</Label>
+                <Label htmlFor="comments" ></Label>
                 <Input id="comments" label="Comment Limit"  type="number" value={redditCommentLimit} onChange={(e) => setRedditCommentLimit(e.target.value)} />
               </div>
             </div>
@@ -185,4 +185,5 @@ export default function DataExtractionPage() {
     </div>
   );
 }
+
 
