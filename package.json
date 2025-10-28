@@ -30,6 +30,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/bcryptjs": "^2.4.2",
+    "@types/nodemailer": "^6.4.12",
+  "@types/papaparse": "^5.3.7",
     "@types/react-dom": "^19",
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
