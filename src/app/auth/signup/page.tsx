@@ -178,7 +178,7 @@ export default function SignUp() {
 
               {/* Email Field */}
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email"></Label>
                 <Input
                   id="email"
                   label="Email" 
@@ -281,3 +281,4 @@ export default function SignUp() {
     </div>
   );
 }
+
