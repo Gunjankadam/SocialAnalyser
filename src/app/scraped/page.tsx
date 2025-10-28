@@ -80,9 +80,12 @@ export default function ScrapedResultsPage() {
 
           {/* No Files Found */}
           {!loading && files.length === 0 && (
+      
+            <div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
             <div className="text-center text-lg">
               <p>No files found. Please <Link href="/extraction" className="text-blue-500">scrape data</Link> to get started.</p>
             </div>
+              </div>
           )}
 
           {/* Files List */}
@@ -172,3 +175,4 @@ const formatFileSize = (size: number) => {
 
   return `${sizeInUnit.toFixed(2)} ${units[unitIndex]}`;
 };
+
