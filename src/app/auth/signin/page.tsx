@@ -98,7 +98,7 @@ export default function SignIn() {
             <form onSubmit={handleSignIn}>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email"></Label>
                   <Input
                     id="email"
                     label="Email"  // Added label prop
@@ -110,7 +110,7 @@ export default function SignIn() {
                   />
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password"></Label>
                   <Input
                     id="password"
                     label="Password"  // Added label prop
@@ -154,3 +154,4 @@ export default function SignIn() {
     </div>
   );
 }
+
