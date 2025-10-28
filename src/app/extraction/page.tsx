@@ -62,7 +62,7 @@ export default function DataExtractionPage() {
         params.append('comment_limit', redditCommentLimit);
       }
 
-      const res = await fetch(`https://mainpython-fraa.onrender.com${baseUrl}?${params.toString()}`);
+      const res = await fetch(`https://mainpython-kpk3.onrender.com${baseUrl}?${params.toString()}`);
       const data = await res.json();
       if (data.status === 'success') {
         setAlertType('success');
@@ -185,5 +185,6 @@ export default function DataExtractionPage() {
     </div>
   );
 }
+
 
 
