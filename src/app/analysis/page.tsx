@@ -147,7 +147,7 @@ const AnalysisPage = () => {
                 id="file-select"
                 className="ml-4 p-2 border border-gray-400 rounded"
                 onChange={handleFileSelection}
-                value={selectedFile ? selectedFile._id : ''} // Set the selected file's ID
+                value={selectedFile ? selectedFile.id : ''} // Set the selected file's ID
               >
                 <option value="">Select a file</option>
                 {files.length > 0 ? (
@@ -166,7 +166,7 @@ const AnalysisPage = () => {
                 onClick={handleAnalyze}
                 disabled={!selectedFile}
               >
-                Visualize
+                Analyze
               </BlackButton>
             </div>
           </div>
@@ -233,4 +233,5 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
 
