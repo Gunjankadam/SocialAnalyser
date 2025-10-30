@@ -177,48 +177,47 @@ const AnalysisPage = () => {
           </div>
 
           {/* Display Analysis Results */}
-          {/* Sentiment, TF-IDF, Topics, Centrality sections */}
+         {/* Display Analysis Results */}
+{/* Sentiment, TF-IDF, Topics, Centrality sections */}
 
-          <div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
-            {loading ? (
-              <p className="loading-text">Loading Sentiment Summary...</p>
-            ) : (
-              <>
-                {sentiments.length > 0 && (
-                  <div className="section">
-                    <h2 className="text-base font-semibold mb-4">Sentiment Summary</h2>
-                    <table className="py-14 table-auto w-full border-collapse border border-gray-300">
-                      <thead>
-                        <tr>
-                          <th className="px-4 py-2 border border-gray-300 bg-black text-white ">Metric</th>
-                          <th className="px-4 py-2 border border-gray-300 bg-black text-white">Value</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="px-4 py-2 border border-black">Average Sentiment</td>
-                          <td className="px-4 py-2 border border-black">{averageSentiment}</td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 border border-black">Positive</td>
-                          <td className="px-4 py-2 border border-black">{sentimentSummary.positive || 0}</td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 border border-black">Neutral</td>
-                          <td className="px-4 py-2 border border-black">{sentimentSummary.neutral || 0}</td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 border border-black">Negative</td>
-                          <td className="px-4 py-2 border border-black">{sentimentSummary.negative || 0}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </>
-            )}
+<div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
+  {loading ? (
+    <p className="loading-text">Loading Sentiment Summary...</p>
+  ) : (
+    <>
+      {sentiments.length > 0 && (
+        <div className="section mb-6">
+          <h2 className="text-base font-semibold mb-4">Sentiment Summary</h2>
+          <table className="py-14 table-auto w-full border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white ">Metric</th>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-4 py-2 border border-black">Average Sentiment</td>
+                <td className="px-4 py-2 border border-black">{averageSentiment}</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2 border border-black">Positive</td>
+                <td className="px-4 py-2 border border-black">{sentimentSummary.positive || 0}</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2 border border-black">Neutral</td>
+                <td className="px-4 py-2 border border-black">{sentimentSummary.neutral || 0}</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2 border border-black">Negative</td>
+                <td className="px-4 py-2 border border-black">{sentimentSummary.negative || 0}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
 
-             {/* TF-IDF Section */}
+      {/* TF-IDF Section */}
       {tfidf.length > 0 && (
         <div className="section mb-6">
           <h2 className="text-base font-semibold mb-4">Top TF-IDF Keywords</h2>
@@ -288,7 +287,7 @@ const AnalysisPage = () => {
       )}
     </>
   )}
-          </div>
+</div>
 
           {/* Continue for other sections (TF-IDF, Topics, Centralities) */}
 
@@ -309,6 +308,7 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
 
 
 
