@@ -136,7 +136,7 @@ setRedditUsageCount(
                   />
                 </div>
                 <div>
-                  <Label>Reddit User Agent ("script:<app_name>:v1.0 (by u/<developers>))</Label>
+                  <Label>Reddit User Agent ("script:&lt;app_name&gt;:v1.0 (by u/&lt;developers&gt;)")</Label>
                   <Input
                     type={editMode ? 'text' : 'password'}
                     value={redditAgent}
@@ -172,5 +172,6 @@ setRedditUsageCount(
     </div>
   );
 }
+
 
 
