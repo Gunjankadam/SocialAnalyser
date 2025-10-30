@@ -153,7 +153,10 @@ REDDIT_USER_AGENT=""
 
 - Real-time prediction result for query.
 - Pie chart for CSV input showing sentiment percentages.
-- 
+
+## Check out deployed project
+https://social-analyser-tawny.vercel.app/
+
 ## Screenshots
 
 - Home Page
