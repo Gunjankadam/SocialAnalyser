@@ -52,7 +52,7 @@ const [sentimentSummary, setSentimentSummary] = useState<SentimentSummary>({});
 
   const fetchUserFiles = async (email: string) => {
     try {
-      const response = await fetch(`https://analysispython.onrender.com/get-user-files?email=${email}`, {
+      const response = await fetch(`https://analysispython-d1ak.onrender.com/get-user-files?email=${email}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const [sentimentSummary, setSentimentSummary] = useState<SentimentSummary>({});
   setLoading(true);
 
   try {
-    const response = await fetch(`https://analysispython.onrender.com/get-analysis?blob_id=${blobId}`);
+    const response = await fetch(`https://analysispython-d1ak.onrender.com/get-analysis?blob_id=${blobId}`);
     const data = await response.json();
 
     if (response.ok) {
@@ -375,3 +375,4 @@ const [sentimentSummary, setSentimentSummary] = useState<SentimentSummary>({});
 };
 
 export default VisualPage;
+
