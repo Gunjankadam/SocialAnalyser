@@ -76,13 +76,17 @@ const AnalysisPage = () => {
     }
   };
 
-  const handleFileSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleFileSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedFileId = event.target.value;
-    const file = files.find((file) => file.id === selectedFileId);
+    console.log('Selected file ID:', selectedFileId);
+    // Find the selected file object based on the selectedFileId
+    const file = files.find((file) => file.filename === selectedFileId);
     if (file) {
       setSelectedFile(file); // Set the selected file as the state
+      console.log('Selected file:', file.csv_blob_id);
     }
   };
+
 
   const handleAnalyze = () => {
     if (selectedFile) {
@@ -147,7 +151,7 @@ const AnalysisPage = () => {
                 id="file-select"
                 className="ml-4 p-2 border border-gray-400 rounded"
                 onChange={handleFileSelection}
-                value={selectedFile ? selectedFile.id : ''} // Set the selected file's ID
+                value={selectedFile ? selectedFile._id : ''} // Set the selected file's ID
               >
                 <option value="">Select a file</option>
                 {files.length > 0 ? (
@@ -233,5 +237,6 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
 
 
