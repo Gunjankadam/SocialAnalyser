@@ -147,23 +147,23 @@ const AnalysisPage = () => {
            {/* File selection dropdown */}
             <div className="mb-4">
               <label htmlFor="file-select" className="text-base">Select File:</label>
-              <select
-                id="file-select"
-                className="ml-4 p-2 border border-gray-400 rounded"
-                onChange={handleFileSelection}
-                value={selectedFile ? selectedFile._id : ''} // Set the selected file's ID
-              >
-                <option value="">Select a file</option>
-                {files.length > 0 ? (
-                  files.map((file) => (
-                    <option key={file.id} value={file.id}>
-                      {file.filename}
-                    </option>
-                  ))
-                ) : (
-                  <option value="">No files available</option>
-                )}
-              </select>
+             <select
+              id="file-select"
+              value={selectedFile ? selectedFile.id : ''}   // ✅ use `id`, not `_id`
+              onChange={(e) => {
+                const selectedFileId = e.target.value;
+                const file = files.find((f) => String(f.id) === selectedFileId); // ✅ type-safe match
+                if (file) setSelectedFile(file);
+              }}
+            >
+              <option value="">Select a file</option>
+              {files.map((f) => (
+                <option key={f.id} value={f.id}>
+                  {f.filename}
+                </option>
+              ))}
+            </select>
+
               {/* Add Analyze Button */}
               <BlackButton
                 className="ml-4 p-2 bg-black text-white rounded"
@@ -237,6 +237,7 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
 
 
 
