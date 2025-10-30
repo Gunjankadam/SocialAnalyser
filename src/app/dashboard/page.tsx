@@ -42,7 +42,7 @@ export default function DashboardPage() {
 
   const fetchUserHistory = async (email: string) => {
     try {
-      const response = await fetch(`https://mainpython-fraa.onrender.com/user-history?email=${email}`);
+      const response = await fetch(`https://mainpython-kpk3.onrender.com/user-history?email=${email}`);
       const data = await response.json();
       if (response.ok && data.history) {
         processScrapeData(data.history);
@@ -153,3 +153,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+
