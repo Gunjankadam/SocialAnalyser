@@ -140,14 +140,14 @@ const AnalysisPage = () => {
         <Anabar email={email || ''} />
         <div className="container mx-auto p-6">
           <div className="dark:bg-gray-800 rounded-lg p-6 mb-6 shadow bg-white/80 backdrop-blur-md rounded-xl shadow-sm border border-gray-200">
-            {/* File selection dropdown */}
+           {/* File selection dropdown */}
             <div className="mb-4">
               <label htmlFor="file-select" className="text-base">Select File:</label>
               <select
                 id="file-select"
                 className="ml-4 p-2 border border-gray-400 rounded"
                 onChange={handleFileSelection}
-                value={selectedFile ? selectedFile.id : ''} // Set the selected file's ID
+                value={selectedFile ? selectedFile._id : ''} // Set the selected file's ID
               >
                 <option value="">Select a file</option>
                 {files.length > 0 ? (
@@ -160,12 +160,13 @@ const AnalysisPage = () => {
                   <option value="">No files available</option>
                 )}
               </select>
+              {/* Add Analyze Button */}
               <BlackButton
                 className="ml-4 p-2 bg-black text-white rounded"
                 onClick={handleAnalyze}
                 disabled={!selectedFile}
               >
-                Analyze
+                Visualize
               </BlackButton>
             </div>
           </div>
@@ -232,3 +233,4 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
