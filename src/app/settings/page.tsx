@@ -32,7 +32,7 @@ export default function SettingsPage() {
   // Fetch saved API keys and usage counts
   const fetchSavedApiKeys = async (email: string) => {
     try {
-      const response = await fetch(`https://mainpython-fraa.onrender.com/save-api-key?email=${email}`);
+      const response = await fetch(`https://mainpython-kpk3.onrender.com/save-api-key?email=${email}`);
       const data = await response.json();
 
       setYoutubeKey(data.youtube_api || '');
@@ -50,7 +50,7 @@ export default function SettingsPage() {
 
   const handleSave = async () => {
     if (!email) return;
-    const res = await fetch('https://mainpython-fraa.onrender.com/save-api-key', {
+    const res = await fetch('https://mainpython-kpk3.onrender.com/save-api-key', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -132,7 +132,7 @@ export default function SettingsPage() {
                   />
                 </div>
                 <div>
-                  <Label>Reddit User Agent</Label>
+                  <Label>Reddit User Agent ("script:<app_name>:v1.0 (by u/<developers>))</Label>
                   <Input
                     type={editMode ? 'text' : 'password'}
                     value={redditAgent}
@@ -168,3 +168,4 @@ export default function SettingsPage() {
     </div>
   );
 }
+
