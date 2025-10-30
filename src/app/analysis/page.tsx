@@ -76,7 +76,7 @@ const AnalysisPage = () => {
     }
   };
 
-    const handleFileSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFileSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedFileId = event.target.value;
     console.log('Selected file ID:', selectedFileId);
     // Find the selected file object based on the selectedFileId
@@ -87,10 +87,11 @@ const AnalysisPage = () => {
     }
   };
 
-
   const handleAnalyze = () => {
     if (selectedFile) {
       fetchAnalysis(selectedFile.csv_blob_id); // Use the blob_id from the selected file
+    } else {
+      console.error('No file selected for analysis');
     }
   };
 
@@ -237,6 +238,7 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
 
 
 
