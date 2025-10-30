@@ -160,7 +160,7 @@ https://social-analyser-tawny.vercel.app/
 ## Screenshots
 
 - Home Page
-  ![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic3.png)
+  ![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/image1.png)
 - Login Page
   ![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic4.png)
 - Dashboard
