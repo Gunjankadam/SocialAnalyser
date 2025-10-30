@@ -16,8 +16,8 @@ export default function SettingsPage() {
   const [redditId, setRedditId] = useState('');
   const [redditSecret, setRedditSecret] = useState('');
   const [redditAgent, setRedditAgent] = useState('');
-  const [youtubeUsageCount, setYoutubeUsageCount] = useState('Unlimited');
-  const [redditUsageCount, setRedditUsageCount] = useState('Unlimited');
+const [youtubeUsageCount, setYoutubeUsageCount] = useState('Loading...');
+const [redditUsageCount, setRedditUsageCount] = useState('Loading...');
   const [error, setError] = useState<string | null>(null);
   const [alertType, setAlertType] = useState<'success' | 'error' | 'info' | 'warning' | null>(null);
 
@@ -40,9 +40,13 @@ export default function SettingsPage() {
       setRedditSecret(data.reddit_secret || '');
       setRedditAgent(data.reddit_user_agent || '');
 
-      // Set the usage counts based on user or default keys
-      setYoutubeUsageCount(data.youtube_use_count || 'Loading...');
-      setRedditUsageCount(data.reddit_use_count || 'Loading...');
+     setYoutubeUsageCount(
+  data.youtube_use_count !== undefined ? data.youtube_use_count : 'Unlimited'
+);
+setRedditUsageCount(
+  data.reddit_use_count !== undefined ? data.reddit_use_count : 'Unlimited'
+);
+
     } catch (error) {
       console.error("Error fetching API keys:", error);
     }
@@ -168,4 +172,5 @@ export default function SettingsPage() {
     </div>
   );
 }
+
 
