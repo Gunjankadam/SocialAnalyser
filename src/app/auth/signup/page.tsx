@@ -99,7 +99,7 @@ export default function SignUp() {
   if (data.success) {
     localStorage.setItem('userEmail', email);
           if (email) {
-        await fetch('https://mainpython-fraa.onrender.com/save-api-key', {
+        await fetch('https://mainpython-kpk3.onrender.com/save-api-key', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -281,5 +281,6 @@ export default function SignUp() {
     </div>
   );
 }
+
 
 
