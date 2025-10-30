@@ -136,47 +136,76 @@ const [sentimentSummary, setSentimentSummary] = useState<SentimentSummary>({});
     }
   };
 
-  const handleDownloadReport = () => {
-    const html = `
-      <html>
-      <head><meta charset="utf-8"><title>Report</title></head>
-      <body>
-        <h1>Social Media Analysis Report</h1>
-        <h2>Email: ${email}</h2>
+const handleDownloadReport = () => {
+  const html = `
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Social Media Analysis Report</title>
+      <style>
+        body { font-family: Arial, sans-serif; padding: 20px; color: #333; }
+        h1, h2, h3 { color: #111; }
+        img { max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+        ul { margin-left: 20px; }
+      </style>
+    </head>
+    <body>
+      <h1>Social Media Analysis Report</h1>
+      <h2>Email: ${email}</h2>
 
-        <h3>Sentiment Summary:</h3>
-        <ul>
-          ${Object.entries(sentimentSummary).map(([k, v]) => `<li>${k}: ${v}</li>`).join('')}
-        </ul>
-  
-        ${sentimentImg ? `<h3>Sentiment Chart:</h3><img src="${sentimentImg}" style="max-width:100%; height:auto;" />` : ''}
-  
-        <h3>Top TF-IDF Terms:</h3>
-        <ul>
-          ${tfidf.map(([term, score]) => `<li>${term}: ${score.toFixed(3)}</li>`).join('')}
-        </ul>
-  
-        ${tfidfImg ? `<h3>TF-IDF Chart:</h3><img src="${tfidfImg}" style="max-width:100%; height:auto;" />` : ''}
-  
-        <h3>Topics Discovered:</h3>
-        <ul>
-          ${topics.map((topic, i) => `<li>Topic ${i + 1}: ${topic.join(', ')}</li>`).join('')}
-        </ul>
-  
-        ${topicImg ? `<h3>Topic Chart:</h3><img src="${topicImg}" style="max-width:100%; height:auto;" />` : ''}
-  
-      </body>
-      </html>
-    `;
-  
-    const blob = new Blob([html], { type: 'application/msword' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'SocialMediaAnalysis_Report.doc';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+      <h3>Sentiment Summary:</h3>
+      <ul>
+        ${Object.entries(sentimentSummary)
+          .map(([k, v]) => `<li><b>${k}</b>: ${v}</li>`)
+          .join('')}
+      </ul>
+      ${sentimentImg ? `<h3>Sentiment Distribution Chart:</h3><img src="${sentimentImg}" />` : ''}
+
+      <h3>Top TF-IDF Terms:</h3>
+      <ul>
+        ${tfidf
+          .map(([term, score]) => `<li>${term}: ${score.toFixed(3)}</li>`)
+          .join('')}
+      </ul>
+      ${tfidfImg ? `<h3>TF-IDF Chart:</h3><img src="${tfidfImg}" />` : ''}
+
+      <h3>Topics Discovered:</h3>
+      <ul>
+        ${topics
+          .map((topic, i) => `<li><b>Topic ${i + 1}:</b> ${topic.join(', ')}</li>`)
+          .join('')}
+      </ul>
+      ${topicImg ? `<h3>Topic Modeling Chart:</h3><img src="${topicImg}" />` : ''}
+
+      ${cooccurrenceImg
+        ? `<h3>Word Co-occurrence Graph:</h3><img src="data:image/png;base64,${cooccurrenceImg}" />`
+        : ''}
+
+      ${wordcloudImg
+        ? `<h3>Word Cloud:</h3><img src="data:image/png;base64,${wordcloudImg}" />`
+        : ''}
+
+      ${
+        centralities.length
+          ? `<h3>Network Centralities:</h3>
+            <ul>
+              ${centralities.map((c, i) => `<li>Node ${i + 1}: ${c}</li>`).join('')}
+            </ul>`
+          : ''
+      }
+    </body>
+    </html>
+  `;
+
+  const blob = new Blob([html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'SocialMediaAnalysis_Report.doc';
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
   
 
   const sentimentPieData = Object.entries(sentimentSummary).map(([label, count]) => ({
@@ -375,4 +404,5 @@ const [sentimentSummary, setSentimentSummary] = useState<SentimentSummary>({});
 };
 
 export default VisualPage;
+
 
