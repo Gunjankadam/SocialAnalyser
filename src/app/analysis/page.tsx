@@ -217,6 +217,77 @@ const AnalysisPage = () => {
                 )}
               </>
             )}
+
+             {/* TF-IDF Section */}
+      {tfidf.length > 0 && (
+        <div className="section mb-6">
+          <h2 className="text-base font-semibold mb-4">Top TF-IDF Keywords</h2>
+          <table className="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Keyword</th>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tfidf.map(([term, score], i) => (
+                <tr key={i}>
+                  <td className="px-4 py-2 border border-black">{term}</td>
+                  <td className="px-4 py-2 border border-black">{score.toFixed(3)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Topics Section */}
+      {topics.length > 0 && (
+        <div className="section mb-6">
+          <h2 className="text-base font-semibold mb-4">Extracted Topics</h2>
+          <table className="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Topic #</th>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Words</th>
+              </tr>
+            </thead>
+            <tbody>
+              {topics.map((topicWords, idx) => (
+                <tr key={idx}>
+                  <td className="px-4 py-2 border border-black">{idx + 1}</td>
+                  <td className="px-4 py-2 border border-black">{topicWords.join(', ')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Centrality Section */}
+      {centralities.length > 0 && (
+        <div className="section mb-6">
+          <h2 className="text-base font-semibold mb-4">Word Centrality Scores</h2>
+          <table className="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Word</th>
+                <th className="px-4 py-2 border border-gray-300 bg-black text-white">Centrality</th>
+              </tr>
+            </thead>
+            <tbody>
+              {centralities.map(([word, score], idx) => (
+                <tr key={idx}>
+                  <td className="px-4 py-2 border border-black">{word}</td>
+                  <td className="px-4 py-2 border border-black">{score.toFixed(3)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
+  )}
           </div>
 
           {/* Continue for other sections (TF-IDF, Topics, Centralities) */}
@@ -238,6 +309,7 @@ const AnalysisPage = () => {
 };
 
 export default AnalysisPage;
+
 
 
 
