@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import twAnimate from "tw-animate-css";
 
 export default {
   content: [
@@ -9,5 +8,5 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [twAnimate],
+  plugins: [],
 } satisfies Config;

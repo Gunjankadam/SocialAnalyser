@@ -19,7 +19,7 @@ SocialAnalyser is a web-based social media analytics platform designed to extrac
 
 Before running the project locally, make sure you have:
 
-- MongoDB (for local development, or use MongoDB Atlas for cloud-based storage)
+- A Supabase project (for the frontend's user data)
 - Git (to clone the repository)
 
 ### Clone the Repository
@@ -46,7 +46,8 @@ npm install -legacy-peer-deps; npm run build;
 Create a `.env` file and define the necessary environment variables:
 
 ```env
-MONGODB_URI=""
+NEXT_PUBLIC_SUPABASE_URL=""
+SUPABASE_SERVICE_ROLE_KEY=""
 EMAIL_USER=""
 EMAIL_PASS=""
 ```
@@ -85,7 +86,7 @@ REDDIT_USER_AGENT=""
 
 - **Frontend**: Next.js, Tailwind CSS
 - **Backend**: Next.js API routes
-- **Database**: MongoDB (for storing user data and historical analytics)
+- **Database**: Supabase (for storing frontend user login/signup data); MongoDB (used by the Python backend for historical analytics)
 - **Libraries/Tools**:
   - **Recharts** for data visualization
   - **Next.js** for server-side rendering and routing
@@ -119,9 +120,7 @@ REDDIT_USER_AGENT=""
 ├── public/                 # Public assets like images
 │   └── hero.png            # Example image for the hero section
 └── src/lib/                # Utility functions
-│   └── util files and mongo-connection
-└── src/models/             # Utility functions
-│   └── mongo-models             
+│   └── util files and supabaseClient
 ```
 
 ## Usage

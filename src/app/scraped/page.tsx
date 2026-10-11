@@ -30,7 +30,7 @@ export default function ScrapedResultsPage() {
     const userEmail = localStorage.getItem('userEmail');
     if (userEmail) {
       setEmail(userEmail);
-      fetch(`https://mainpython-fraa.onrender.com/user-history?email=${userEmail}`)
+      fetch(`https://mainpython-kpk3.onrender.com/user-history?email=${userEmail}`)
         .then(res => res.json())
         .then(data => {
           setFiles(data.history);
@@ -42,7 +42,7 @@ export default function ScrapedResultsPage() {
 
   const fetchFileData = async (blob_id: string) => {
     setLoading(true); // Set loading when fetching file data
-    const res = await fetch(`https://mainpython-fraa.onrender.com/download-csv/${blob_id}`);
+    const res = await fetch(`https://mainpython-kpk3.onrender.com/download-csv/${blob_id}`);
     const text = await res.text();
     const parsed = Papa.parse(text.trim(), { skipEmptyLines: true });
     setFileData(parsed.data as string[][]);
@@ -56,14 +56,14 @@ export default function ScrapedResultsPage() {
   };
 
   const handleDelete = async (blob_id: string) => {
-    await fetch(`https://mainpython-fraa.onrender.com/delete-file/${blob_id}`, { method: 'DELETE' });
+    await fetch(`https://mainpython-kpk3.onrender.com/delete-file/${blob_id}`, { method: 'DELETE' });
     setFiles(files.filter(f => f.csv_blob_id !== blob_id));
     if (selectedFile?.csv_blob_id === blob_id) setSelectedFile(null);
   };
 
   const handleDownload = (blobId: string) => {
     const downloadLink = document.createElement("a");
-    downloadLink.href = `https://mainpython-fraa.onrender.com/download-csv/${blobId}`;
+    downloadLink.href = `https://mainpython-kpk3.onrender.com/download-csv/${blobId}`;
     downloadLink.download = "download.csv";  // Optionally specify a filename
     downloadLink.click();
   };

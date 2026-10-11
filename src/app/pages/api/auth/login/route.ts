@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { connectDB } from "@/lib/dbConnect";
-import User from "@/models/User";
+import { supabase } from "@/lib/supabaseClient";
 
 export async function POST(req: Request) {
   try {
@@ -11,9 +10,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
     }
 
-    await connectDB();
+    const { data: user, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email)
+      .maybeSingle();
 
-    const user = await User.findOne({ email });
+    if (error) {
+      console.error("Login error:", error);
+      return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    }
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
@@ -27,9 +33,8 @@ export async function POST(req: Request) {
       success: true,
       message: "Login successful",
       user: {
-        id: user._id,
+        id: user.id,
         email: user.email,
-        name: user.name,
       },
     });
   } catch (error) {
